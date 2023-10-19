@@ -24,6 +24,6 @@ int main()
     cout << "Sum is " << sum << "\n";
     cout << "product is " << product << "\n";
     cout << "difference is " << difference << "\n";
-    cout << "Quotient is " << quotient << "\n";
+    cout << "Quotient is " << quotient << endl;
     
 }
