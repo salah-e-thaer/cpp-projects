@@ -29,4 +29,21 @@ int main() {
 
     account1.displayAccount(account1);
     account2.displayAccount(account2);
+
+    cout << "\n\nEnter withdrawal amount for account1: ";
+    int withdrawAmount;
+    cin >> withdrawAmount;
+    cout << "withdraw " << withdrawAmount << " from account1 balance\n";
+    account1.withdraw(withdrawAmount);
+    
+    account1.displayAccount(account1);
+    account2.displayAccount(account2);
+
+    cout << "\n\nEnter withdrawal amount for account2: ";
+    cin >> withdrawAmount;
+    cout << "withdraw " << withdrawAmount << " from account2 balance\n";
+    account2.withdraw(withdrawAmount);
+
+    account1.displayAccount(account1);
+    account2.displayAccount(account2);
     }

@@ -21,6 +21,14 @@ class Account {
         }
     }
 
+    void withdraw(int withdrawAmount) {
+        if (withdrawAmount > balance){
+            std::cout << "Withdrawal amount exceeded account balance.";
+        } else {
+            balance = balance - withdrawAmount;
+        }
+    }
+
     int getBalance() const {
         return balance;
     }
