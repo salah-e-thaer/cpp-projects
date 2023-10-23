@@ -2,61 +2,84 @@
 #include <string>
 
 class Invoice {
-    public:
-    Invoice(std::string partNumber, std::string partDescription, int qty, int price)
-    : number(partNumber), description(partDescription), item(qty), price(price), VAT(0.002), 
-    discount(0) {
+private:
+    std::string partNumber;
+    std::string partDescription;
+    int quantity;
+    int pricePerItem;
+    double vatRate;
+    double discountRate;
 
-    }
-    
-    void setNumber(std::string partNumber) {
-        number = partNumber;
-    }
-
-    std::string getNumber() const {
-        return number;
-    }
-    void setDescription(std::string partDescription) {
-        description = partDescription;
+public:
+    Invoice(const std::string& number, const std::string& description, int qty, int price, double vat = 0.002, double discount = 0.0)
+        : partNumber(number), partDescription(description), quantity(qty), pricePerItem(price), vatRate(vat), discountRate(discount) {
     }
 
-    std::string getDescription() const {
-        return description;
+    // Setters
+    void setPartNumber(const std::string& number) {
+        partNumber = number;
     }
 
-    void setItem(int qty) {
+    void setPartDescription(const std::string& description) {
+        partDescription = description;
+    }
+
+    void setQuantity(int qty) {
         if (qty > 0) {
-            item = qty;
+            quantity = qty;
         }
     }
 
-    int getItem() const {
-        return item;
-    }
-
-    void setPrice(int price) {
+    void setPricePerItem(int price) {
         if (price > 0) {
-            price = price;
+            pricePerItem = price;
         }
     }
 
-    int getPrice() const {
-        return price;
+    void setVatRate(double vat) {
+        if (vat >= 0.0) {
+            vatRate = vat;
+        }
     }
 
-    double getInvoiceAmount() const {
-        double subtotal = item * price;
-        double taxAmount = subtotal * VAT;
-        double discountAmount = subtotal * discount;
+    void setDiscountRate(double discount) {
+        if (discount >= 0.0) {
+            discountRate = discount;
+        }
+    }
 
-        double invoiceAmount = subtotal + taxAmount - discountAmount;
+    // Getters
+    std::string getPartNumber() const {
+        return partNumber;
+    }
+
+    std::string getPartDescription() const {
+        return partDescription;
+    }
+
+    int getQuantity() const {
+        return quantity;
+    }
+
+    int getPricePerItem() const {
+        return pricePerItem;
+    }
+
+    double getVatRate() const {
+        return vatRate;
+    }
+
+    double getDiscountRate() const {
+        return discountRate;
+    }
+
+    // Calculates the invoice amount
+    double getInvoiceAmount() const {
+        double subtotal = quantity * pricePerItem;
+        double vatAmount = subtotal * vatRate;
+        double discountAmount = subtotal * discountRate;
+
+        double invoiceAmount = subtotal + vatAmount - discountAmount;
         return invoiceAmount;
     }
-    private:
-    std::string number;
-    std::string description;
-    int item{0};
-    int price{0};
-    double VAT{0};
-    double discount{0};
 };
