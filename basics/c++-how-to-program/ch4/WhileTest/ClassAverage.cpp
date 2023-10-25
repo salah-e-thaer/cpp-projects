@@ -1,4 +1,4 @@
-// Solving the class-average problem using while
+// Solving the class-average problem using while with counter-controlled iteration.
 #include <iostream>
 
 using namespace std;
