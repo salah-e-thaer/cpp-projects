@@ -15,13 +15,13 @@ int main() {
         cin >> result;
         if (result == 1)
         {
-            passes = passes + 1;
+            ++passes;
         }
         else 
         {
-            failures = failures + 1;
+            ++failures;
         }
-        studentCounter = studentCounter + 1;
+        ++studentCounter;
     }
 
     cout << "Passed: " << passes << "\nFailed: " << failures << endl;
