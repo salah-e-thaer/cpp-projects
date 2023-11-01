@@ -4,6 +4,12 @@
 using namespace std;
 
 int main() {
+    unsigned int seed{0};
+
+    cout << "Enter seed: ";
+    cin >> seed;
+    srand(seed);
+    
     for (unsigned int counter{1}; counter <= 20; ++counter) {
         cout << setw(10) << (1 + rand() % 6);
 
