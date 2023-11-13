@@ -6,13 +6,13 @@ unsigned long fibonacci(unsigned long);
 
 int main() {
     for (unsigned int counter{0}; counter <= 10; ++counter) {
-        cout << "fibonacci(" << counter << ")" << fibonacci(counter) << endl;
+        cout << "fibonacci(" << counter << ")= " << fibonacci(counter) << endl;
     }
 
     // display higher fibonacci values.
-    cout << "\nfibonacci(20) = " << fibonacci(20) << endl;
-    cout << "fibonacci(30) = " << fibonacci(30) << endl;
-    cout << "fibonacci(35) = " << fibonacci(35) << endl;
+    cout << "\nfibonacci(20)= " << fibonacci(20) << endl;
+    cout << "fibonacci(30)= " << fibonacci(30) << endl;
+    cout << "fibonacci(35)= " << fibonacci(35) << endl;
 }
 
 unsigned long fibonacci(unsigned long number) {
